@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Svitlana Krugovykh | SILVER-SERVICE</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: url('https://www.svgrepo.com/show/276264/abstract-shapes.svg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2 {
+      color: #34568B;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .languages {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .languages a {
+      margin: 0 15px;
+      font-size: 1.1em;
+      color: #5DADE2;
+      text-decoration: none;
+    }
+
+    .languages a:hover {
+      text-decoration: underline;
+    }
+
+    .contacts,
+    .social {
+      text-align: center;
+    }
+
+    .contacts p,
+    .social a {
+      font-size: 1.1em;
+      color: #34568B;
+    }
+
+    .social a {
+      margin: 0 10px;
+      color: #5DADE2;
+    }
+
+    .social img {
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    form input,
+    form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      padding: 10px;
+      background-color: #5DADE2;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #3A8DBA;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px 0;
+      background-color: #333;
+      color: white;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 500px;
+      height: 300px;
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Svitlana Krugovykh | SILVER-SERVICE</h1>
+
+    <div class="languages">
+      <a href="?lang=en">English</a> | <a href="?lang=pl">Polski</a> | <a href="?lang=de">Deutsch</a> | <a
+        href="?lang=uk">Українська</a>
+    </div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang') || 'en';
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const content = {
+          uk: {
+            heading: "Про компанію",
+            about: "Мене звати Світлана Кругових, і я звертаюся від імені групи компаній «Сілвер-Сервіс».\n\nМи не просто інтегруємо сервіси — ми робимо так, щоб вони працювали разом, як добре налаштована екосистема. Якщо вам казали, що щось неможливо поєднати або автоматизувати — ви ще не зверталися до нас. Ми знаходимо рішення там, де інші здаються.\n\nМи працюємо для тих, хто цінує час і ефективність. Якщо ваш бізнес використовує багато систем, але вони не дають бажаного результату, ми все налаштуємо так, щоб ви забули про технічні проблеми й зосередилися на головному — розвитку бізнесу.\n\nСучасні CRM, автоматизація процесів, бази даних, голосові замовлення на будь-якій мові — це лише частина того, що ми робимо. І при цьому ми адаптуємося під ваш бюджет і реальні потреби, замість того, щоб нав’язувати непотрібні рішення.\n\nМи не для тих, хто чекає готових відповідей з неба. Ми для тих, хто готовий діяти і рости разом з нами. Зв'яжіться з нами — і переконаєтесь, що співпраця з нами робить ваш бізнес кращим, швидшим і потужнішим.",
+            contact: "Контактна інформація",
+            feedback: "Зворотний зв'язок",
+            gallery: "Галерея",
+            video: "Відео",
+            name: "Ваше ім'я",
+            email: "Ваш email",
+            message: "Ваше повідомлення",
+            send: "Надіслати"
+          },
+          en: {
+            heading: "About the Company",
+            about: "My name is Svitlana Krugovykh, and I am reaching out on behalf of the SILVER-SERVICE group of companies.\n\nWe don’t just integrate services — we make them work together as a well-tuned ecosystem. If you’ve been told that something can’t be integrated or automated, you haven’t worked with us yet. We find solutions where others give up.\n\nWe work for those who value time and efficiency. If your business runs on many systems but they aren’t delivering the results you want, we’ll make sure everything works seamlessly so you can focus on what matters most — growing your business.\n\nModern CRMs, process automation, databases, voice orders in any language — this is just a part of what we do. And we tailor our solutions to your budget and real needs, without pushing unnecessary features.\n\nWe are not for those waiting for solutions to fall from the sky. We’re for those ready to act and grow with us. Get in touch — and see for yourself how we can make your business faster, better, and more powerful.",
+            contact: "Contact Information",
+            feedback: "Feedback",
+            gallery: "Gallery",
+            video: "Video",
+            name: "Your Name",
+            email: "Your Email",
+            message: "Your Message",
+            send: "Send"
+          },
+          pl: {
+            heading: "O firmie",
+            about: "Nazywam się Svitlana Krugovykh i reprezentuję grupę firm SILVER-SERVICE.\n\nNie tylko integrujemy usługi — sprawiamy, że działają razem jak dobrze zestrojony ekosystem. Jeśli ktoś powiedział Ci, że czegoś nie da się połączyć lub zautomatyzować, to znaczy, że jeszcze nie współpracowałeś z nami. Znajdujemy rozwiązania tam, gdzie inni się poddają.\n\nPracujemy dla tych, którzy cenią czas i efektywność. Jeśli w Twoim biznesie działa wiele systemów, ale nie przynoszą one oczekiwanych rezultatów, sprawimy, że wszystko będzie funkcjonowało bezproblemowo, abyś mógł skupić się na tym, co najważniejsze — rozwoju firmy.\n\nNowoczesne CRM-y, automatyzacja procesów, bazy danych, zamówienia głosowe w dowolnym języku — to tylko część naszych możliwości. Dostosowujemy się do Twojego budżetu i rzeczywistych potrzeb, bez narzucania zbędnych rozwiązań.\n\nNie jesteśmy dla tych, którzy czekają na gotowe odpowiedzi z nieba. Jesteśmy dla tych, którzy są gotowi działać i rozwijać się razem z nami. Skontaktuj się z nami — i przekonaj się, jak możemy uczynić Twój biznes szybszym, lepszym i silniejszym.",
+            contact: "Informacje kontaktowe",
+            feedback: "Informacja zwrotna",
+            gallery: "Galeria",
+            video: "Wideo",
+            name: "Twoje imię",
+            email: "Twój email",
+            message: "Twoja wiadomość",
+            send: "Wyślij"
+          },
+          de: {
+            heading: "Über das Unternehmen",
+            about: "Mein Name ist Svitlana Krugovykh und ich vertrete die SILVER-SERVICE Unternehmensgruppe.\n\nWir integrieren nicht nur Systeme — wir sorgen dafür, dass sie wie ein perfekt abgestimmtes Ökosystem zusammenarbeiten. Wenn man Ihnen gesagt hat, dass etwas nicht integriert oder automatisiert werden kann, dann haben Sie noch nicht mit uns zusammengearbeitet. Wir finden Lösungen, wo andere aufgeben.\n\nWir arbeiten für diejenigen, die Zeit und Effizienz schätzen. Wenn Ihr Unternehmen auf vielen Systemen basiert, aber diese nicht die gewünschten Ergebnisse liefern, sorgen wir dafür, dass alles reibungslos funktioniert, damit Sie sich auf das Wesentliche konzentrieren können — das Wachstum Ihres Unternehmens.\n\nModerne CRMs, Prozessautomatisierung, Datenbanken, Sprachbestellungen in jeder Sprache — das ist nur ein Teil dessen, was wir bieten. Dabei passen wir unsere Lösungen Ihrem Budget und Ihren realen Bedürfnissen an, ohne unnötige Funktionen aufzuzwingen.\n\nWir sind nicht für diejenigen, die auf fertige Antworten aus dem Himmel warten. Wir sind für diejenigen, die bereit sind, zu handeln und mit uns zu wachsen. Kontaktieren Sie uns — und erleben Sie selbst, wie wir Ihr Unternehmen schneller, besser und leistungsfähiger machen können.",
+            contact: "Kontaktinformation",
+            feedback: "Rückmeldung",
+            gallery: "Galerie",
+            video: "Video",
+            name: "Ihr Name",
+            email: "Ihre E-Mail",
+            message: "Ihre Nachricht",
+            send: "Senden"
+          }
+        };
+
+        const selectedContent = content[lang];
+
+        document.getElementById('aboutHeading').innerText = selectedContent.heading;
+        document.getElementById('aboutText').innerText = selectedContent.about;
+        document.getElementById('contactHeading').innerText = selectedContent.contact;
+        document.getElementById('feedbackHeading').innerText = selectedContent.feedback;
+        document.getElementById('galleryHeading').innerText = selectedContent.gallery;
+        document.getElementById('videoHeading').innerText = selectedContent.video;
+        document.getElementById('nameField').placeholder = selectedContent.name;
+        document.getElementById('emailField').placeholder = selectedContent.email;
+        document.getElementById('messageField').placeholder = selectedContent.message;
+        document.getElementById('sendButton').innerText = selectedContent.send;
+      });
+    </script>
+
+    <div class="section">
+      <h2 id="aboutHeading">About the Company</h2>
+      <p id="aboutText">My name is Svitlana Krugovykh, and I am reaching out on behalf of the SILVER-SERVICE group of
+        companies...</p>
+    </div>
+
+    <div class="section">
+      <h2 id="contactHeading">Contact Information</h2>
+      <div class="contacts">
+        <p>Email: silver.service.pl@gmail.com</p>
+        <p>Tel: +48 780-622-969, +48 572-246-597</p>
+        <p>Tel: +1(267) 652-0319, +1(215) 930-9965</p>
+        <p class="social">
+          <a href="https://www.linkedin.com/company/101518860/" target="_blank"><img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn"> LinkedIn</a> |
+          <a href="https://www.facebook.com/profile.php?id=61555957887958" target="_blank"><img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            Facebook</a> |
+          <a href="https://github.com/SvetlanaKrugovykh" target="_blank"><img src="./images/github-mark.png"
+              alt="GitHub"> GitHub</a> |
+          <a href="https://t.me/SilverService_com_pl" target="_blank"><img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"> Telegram</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 id="feedbackHeading">Feedback</h2>
+      <form>
+        <input type="text" id="nameField" placeholder="Your Name" required>
+        <input type="email" id="emailField" placeholder="Your Email" required>
+        <textarea id="messageField" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" id="sendButton">Send</button>
+      </form>
+    </div>
+    <div class="section">
+      <h2 id="galleryHeading">Gallery</h2>
+      <div class="gallery">
+        <img src="./images/icon16.png" alt="https://via.placeholder.com/200">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 id="videoHeading">Video</h2>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 SILVER-SERVICE.PL | Svitlana Krugovykh</p>
+  </footer>
+  <script>
+    document.getElementById('sendButton').addEventListener('click', async () => {
+      const name = document.getElementById('nameField').value;
+      const email = document.getElementById('emailField').value;
+      const message = document.getElementById('messageField').value;
+
+      const apiAddress = `https://${redirectApiHost}:8008/api/liqpay/callback/send-msg/?name=${name}&email=${email}&message=${message}`;
+      const response = await fetch(apiAddress, {
+        method: "GET",
+        mode: "cors",
+        cache: "no-cache"
+      });
+
+      if (response.ok) {
+        console.log('Message sent successfully');
+      } else {
+        console.error('Error sending message');
+      }
+    });
+  </script>
+</body>
+
+</html>
