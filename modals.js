@@ -92,21 +92,31 @@ document.getElementById('sendButton').addEventListener('click', async (event) =>
   const urlParams = new URLSearchParams(window.location.search)
   const language = urlParams.get('lang') || 'en'
   console.log('language', language)
+  const videoFrame = document.getElementById('videoFrame')
+  const videoLinks = {
+    'en': 'https://youtu.be/0yQVBeWJfIE',
+    'uk': 'https://youtu.be/45dVx59PHo8',
+    'pl': 'https://youtu.be/cgx3n7GspLc'
+  };
 
   let successMessage, errorMessage
 
   if (language === 'uk') {
     successMessage = 'Повідомлення успішно надіслано'
     errorMessage = 'Помилка при відправці повідомлення'
+    videoFrame.src = videoLinks['uk']
   } else if (language === 'pl') {
     successMessage = 'Wiadomość została pomyślnie wysłana'
     errorMessage = 'Błąd podczas wysyłania wiadomości'
+    videoFrame.src = videoLinks['pl']
   } else if (language === 'de') {
     successMessage = 'Nachricht erfolgreich gesendet'
     errorMessage = 'Fehler beim Senden der Nachricht'
+    videoFrame.src = videoLinks['en']
   } else {
     successMessage = 'Message sent successfully'
     errorMessage = 'Error sending message'
+    videoFrame.src = videoLinks['en']
   }
 
   if (response.ok) {
