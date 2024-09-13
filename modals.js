@@ -79,6 +79,8 @@ document.getElementById('sendButton').addEventListener('click', async (event) =>
   const email = document.getElementById('emailField').value
   const message = document.getElementById('messageField').value
 
+  const redirectApiHost = 'https://gateway.silver-service.com.ua:8008/api/liqpay/callback/send-msg/'
+
   const apiAddress = `${redirectApiHost}/?name=${name}&email=${email}&message=${message}`
   const response = await fetch(apiAddress, {
     method: "GET",
