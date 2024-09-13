@@ -28,6 +28,7 @@ function createConfirmationModal(message, triggerButton) {
       overlay.style.display = 'none'
       modal.remove()
       overlay.remove()
+      location.reload()
       resolve(true)
     }
 
@@ -36,6 +37,7 @@ function createConfirmationModal(message, triggerButton) {
       overlay.style.display = 'none'
       modal.remove()
       overlay.remove()
+      location.reload()
       resolve(false)
     }
   })
@@ -69,6 +71,7 @@ function showAlertModal(message, triggerButton) {
     overlay.style.display = 'none'
     alertModal.remove()
     overlay.remove()
+    location.reload()
   }
 }
 
@@ -91,7 +94,7 @@ document.getElementById('sendButton').addEventListener('click', async (event) =>
 
   const urlParams = new URLSearchParams(window.location.search)
   const language = urlParams.get('lang') || 'en'
-  console.log('language', language)
+  console.log('language-for-button', language)
   const videoFrame = document.getElementById('videoFrame')
   const videoLinks = {
     'en': 'https://youtu.be/0yQVBeWJfIE',
@@ -125,3 +128,28 @@ document.getElementById('sendButton').addEventListener('click', async (event) =>
     showAlertModal(errorMessage, event.target)
   }
 })
+
+function updateVideoBasedOnLanguage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const language = urlParams.get('lang') || 'en';
+  console.log('language-for-video', language);
+  const videoFrame = document.getElementById('videoFrame');
+  const videoLinks = {
+    'en': './images/en-point.mp4',
+    'uk': './images/uk-point.mp4',
+    'pl': './images/pl-point.mp4',
+    'de': './images/de-point.mp4'
+  };
+
+  if (videoFrame) {
+    if (videoLinks[language]) {
+      videoFrame.src = videoLinks[language];
+    } else {
+      videoFrame.src = videoLinks['en'];
+    }
+  } else {
+    console.error('Element with id "videoFrame" not found');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', updateVideoBasedOnLanguage)
