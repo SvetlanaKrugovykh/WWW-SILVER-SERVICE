@@ -34,7 +34,7 @@ jobs:
 
       - name: Replace placeholder with secret
         run: |
-          sed -i 's/__REDIRECT_API_HOST__/${{ secrets.REDIRECT_API_HOST }}/g' index.html
+          sed -i 's|__REDIRECT_API_HOST__|${{ secrets.REDIRECT_API_HOST }}|g' index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -42,6 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Upload entire repository
           path: "."
 
       - name: Deploy to GitHub Pages
