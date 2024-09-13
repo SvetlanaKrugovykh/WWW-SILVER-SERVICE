@@ -85,49 +85,45 @@ document.getElementById('sendButton').addEventListener('click', async (event) =>
   const redirectApiHost = 'https://gateway.silver-service.com.ua:8008/api/liqpay/callback/send-msg/'
 
   const apiAddress = `${redirectApiHost}?name=${name}&email=${email}&message=${message}`
-  const response = await fetch(apiAddress, {
-    method: "GET",
-    mode: "cors",
-    cache: "no-cache"
-  })
+  try {
+    const response = await fetch(apiAddress, {
+      method: "GET",
+      mode: "cors",
+      cache: "no-cache"
+    })
 
+    const urlParams = new URLSearchParams(window.location.search)
+    const language = urlParams.get('lang') || 'en'
+    console.log('language-for-button', language)
 
-  const urlParams = new URLSearchParams(window.location.search)
-  const language = urlParams.get('lang') || 'en'
-  console.log('language-for-button', language)
-  const videoFrame = document.getElementById('videoFrame')
-  const videoLinks = {
-    'en': 'https://youtu.be/0yQVBeWJfIE',
-    'uk': 'https://youtu.be/45dVx59PHo8',
-    'pl': 'https://youtu.be/cgx3n7GspLc'
-  };
+    let successMessage, errorMessage;
 
-  let successMessage, errorMessage
+    if (language === 'uk') {
+      successMessage = 'Повідомлення успішно надіслано'
+      errorMessage = 'Помилка при відправці повідомлення'
+    } else if (language === 'pl') {
+      successMessage = 'Wiadomość została pomyślnie wysłana'
+      errorMessage = 'Błąd podczas wysyłania wiadomości'
+    } else if (language === 'de') {
+      successMessage = 'Nachricht erfolgreich gesendet'
+      errorMessage = 'Fehler beim Senden der Nachricht'
+    } else {
+      successMessage = 'Message sent successfully'
+      errorMessage = 'Error sending message'
+    }
 
-  if (language === 'uk') {
-    successMessage = 'Повідомлення успішно надіслано'
-    errorMessage = 'Помилка при відправці повідомлення'
-    videoFrame.src = videoLinks['uk']
-  } else if (language === 'pl') {
-    successMessage = 'Wiadomość została pomyślnie wysłana'
-    errorMessage = 'Błąd podczas wysyłania wiadomości'
-    videoFrame.src = videoLinks['pl']
-  } else if (language === 'de') {
-    successMessage = 'Nachricht erfolgreich gesendet'
-    errorMessage = 'Fehler beim Senden der Nachricht'
-    videoFrame.src = videoLinks['en']
-  } else {
-    successMessage = 'Message sent successfully'
-    errorMessage = 'Error sending message'
-    videoFrame.src = videoLinks['en']
+    console.log('response', response)
+    if (response.ok) {
+      createConfirmationModal(successMessage, event.target);
+    } else {
+      showAlertModal(errorMessage, event.target);
+    }
+  } catch (error) {
+    console.error('Fetch error:', error);
+    showAlertModal('An error occurred while sending the message. Please try again later.', event.target);
   }
+});
 
-  if (response.ok) {
-    await createConfirmationModal(successMessage, event.target)
-  } else {
-    showAlertModal(errorMessage, event.target)
-  }
-})
 
 function updateVideoBasedOnLanguage() {
   const urlParams = new URLSearchParams(window.location.search);
