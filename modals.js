@@ -114,15 +114,16 @@ document.getElementById('sendButton').addEventListener('click', async (event) =>
 
     console.log('response', response)
     if (response.ok) {
-      createConfirmationModal(successMessage, event.target);
+      //createConfirmationModal(successMessage, event.target);
+      showAlertModal(successMessage, event.target)
     } else {
-      showAlertModal(errorMessage, event.target);
+      showAlertModal(errorMessage, event.target)
     }
   } catch (error) {
     console.error('Fetch error:', error);
-    showAlertModal('An error occurred while sending the message. Please try again later.', event.target);
+    showAlertModal('An error occurred while sending the message. Please try again later.', event.target)
   }
-});
+})
 
 
 function updateVideoBasedOnLanguage() {
